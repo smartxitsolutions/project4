@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Laundry Services</title>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">CleanCare</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="user-name">John Doe</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-left">
+            <h1>Professional Laundry Services at Your Doorstep</h1>
+            <p>Experience premium cleaning services with free pickup and delivery. We take care of your clothes so you can focus on what matters most.</p>
+            <button class="cta-button" onclick="scrollToBooking()">Book a Service Today</button>
+        </div>
+        <div class="hero-right" data-aos="fade-in" data-aos-duration="2000">
+            <img src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=800&h=600&fit=crop" alt="Laundry Services">
+        </div>
+    </section>
+
+    <!-- Service Overview Section -->
+    <section id="about" class="service-overview">
+        <div class="overview-container">
+            <div class="achievement">
+                <div class="achievement-number">15+</div>
+                <div class="achievement-text">Laundry Services</div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-number">240+</div>
+                <div class="achievement-text">Happy Customers</div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-number">2+</div>
+                <div class="achievement-text">Years of Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Services Section -->
+    <section id="services" class="booking-section">
+        <h2>Book Your Service</h2>
+        <div class="booking-container">
+            <!-- Left Side - Services List -->
+            <div class="services-list">
+                <div id="servicesList"></div>
+                <div class="cart-info">
+                    💡 Add items to the cart to proceed with booking
+                </div>
+            </div>
+
+            <!-- Right Side - Cart and Booking Form -->
+            <div class="cart-booking">
+                <!-- Cart Section -->
+                <div class="cart-section">
+                    <h3>Your Cart</h3>
+                    <div class="cart-items" id="cartItems">
+                        <div class="empty-cart">No items added yet</div>
+                    </div>
+                    <div class="total-amount">
+                        <span>Total Amount:</span>
+                        <span class="total-price" id="totalAmount">$0</span>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <div class="booking-form" id="contact">
+                    <h3>Book Now</h3>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <button type="submit" class="book-button" id="bookButton">Book Now</button>
+                        <div class="confirmation-message" id="confirmationMessage">
+                            ✅ Thank you for booking the service! We will get back to you soon!
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Description Section -->
+    <section class="quality-section" >
+        <h2>Why Choose CleanCare?</h2>
+        <p class="quality-subtitle">We deliver excellence in every wash. Discover the unique qualities that set us apart from the competition.</p>
+        <div class="quality-grid" data-aos="fade-in" data-aos-duration="2000">
+            <div class="quality-card">
+                <div class="quality-icon">⭐</div>
+                <h3 class="quality-title">Premium Services</h3>
+                <p class="quality-description">We use only the finest detergents and state-of-the-art equipment to ensure your clothes receive the best care possible.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon">⚡</div>
+                <h3 class="quality-title">Quick Support</h3>
+                <p class="quality-description">Our dedicated customer support team is available 24/7 to assist you with any questions or concerns.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon">🚚</div>
+                <h3 class="quality-title">Timely Delivery</h3>
+                <p class="quality-description">Free pickup and delivery service with guaranteed same-day or next-day turnaround for your convenience.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon">💰</div>
+                <h3 class="quality-title">Affordable Prices</h3>
+                <p class="quality-description">Competitive pricing without compromising quality. Get professional laundry services that fit your budget.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>Stay Connected!</h2>
+            <p>Subscribe to our newsletter and get exclusive offers, laundry tips, and updates delivered straight to your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="text" class="newsletter-input" id="newsletterName" placeholder="Your Full Name" required>
+                <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="Your Email Address" required>
+                <button type="submit" class="subscribe-button">Subscribe Now</button>
+                <div class="newsletter-message" id="newsletterMessage">
+                    ✅ Thank you for subscribing! Check your inbox for exclusive offers.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="footer-logo">CleanCare</div>
+                <p class="footer-description">
+                    Your trusted partner for premium laundry services. We're committed to delivering exceptional quality and convenience with every wash.
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <!-- About Us -->
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#about">Mission & Values</a></li>
+                    <li><a href="#about">Our Team</a></li>
+                    <li><a href="#about">Careers</a></li>
+                </ul>
+            </div>
+
+            <!-- Important Links -->
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+1234567890">📞 +1 (234) 567-890</a></li>
+                    <li><a href="mailto:info@cleancare.com">✉️ info@cleancare.com</a></li>
+                    <li><a href="#">📍 123 Laundry St, Clean City</a></li>
+                    <li><a href="#contact">💬 Live Chat Support</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 CleanCare Laundry Services. All rights reserved. | Designed with ❤️ for your convenience</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS
+        // IMPORTANT: Replace these with your actual EmailJS credentials
+        // Get them from: https://www.emailjs.com/
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        // Services Data
+        const services = [
+            { id: 1, name: "Wash & Fold", price: 15 },
+            { id: 2, name: "Dry Cleaning", price: 25 },
+            { id: 3, name: "Iron & Press", price: 12 },
+            { id: 4, name: "Stain Removal", price: 20 },
+            { id: 5, name: "Bedding & Linens", price: 30 },
+            { id: 6, name: "Delicate Care", price: 18 }
+        ];
+
+        // Cart State
+        let cart = [];
+
+        // Render Services
+        function renderServices() {
+            const servicesList = document.getElementById('servicesList');
+            servicesList.innerHTML = services.map(service => `
+                <div class="service-item">
+                    <div class="service-header">
+                        <span class="service-name">${service.name}</span>
+                        <span class="service-price">$${service.price}</span>
+                    </div>
+                    <div class="service-buttons">
+                        <button class="remove-button" id="remove-${service.id}" onclick="removeFromCart(${service.id})" disabled>
+                            Remove Now
+                        </button>
+                        <button class="add-button" id="add-${service.id}" onclick="addToCart(${service.id})">
+                            Add Items
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add to Cart
+        function addToCart(serviceId) {
+            const service = services.find(s => s.id === serviceId);
+            const existingItem = cart.find(item => item.id === serviceId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...service, quantity: 1 });
+            }
+            
+            updateCart();
+            updateButtons(serviceId);
+        }
+
+        // Remove from Cart
+        function removeFromCart(serviceId) {
+            const itemIndex = cart.findIndex(item => item.id === serviceId);
+            
+            if (itemIndex !== -1) {
+                if (cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity--;
+                } else {
+                    cart.splice(itemIndex, 1);
+                }
+            }
+            
+            updateCart();
+            updateButtons(serviceId);
+        }
+
+        // Update Cart Display
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const totalAmount = document.getElementById('totalAmount');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart">No items added yet</div>';
+                totalAmount.textContent = '$0';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <span class="cart-item-name">${item.name} x${item.quantity}</span>
+                        <span class="cart-item-price">$${item.price * item.quantity}</span>
+                    </div>
+                `).join('');
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                totalAmount.textContent = `$${total}`;
+            }
+        }
+
+        // Update Buttons State
+        function updateButtons(serviceId) {
+            const addButton = document.getElementById(`add-${serviceId}`);
+            const removeButton = document.getElementById(`remove-${serviceId}`);
+            const inCart = cart.find(item => item.id === serviceId);
+            
+            if (inCart) {
+                removeButton.classList.add('active');
+                removeButton.disabled = false;
+            } else {
+                removeButton.classList.remove('active');
+                removeButton.disabled = true;
+            }
+        }
+
+        // Scroll to Booking Section
+        function scrollToBooking() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Booking Form Submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Please add at least one service to your cart before booking!');
+                return;
+            }
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const servicesBooked = cart.map(item => `${item.name} x${item.quantity} - $${item.price * item.quantity}`).join(', ');
+            
+            // Disable button while sending
+            const bookButton = document.getElementById('bookButton');
+            bookButton.disabled = true;
+            bookButton.textContent = 'Sending...';
+            
+            // EmailJS template parameters
+            const templateParams = {
+                to_name: fullName,
+                to_email: email,
+                phone: phone,
+                services: servicesBooked,
+                total_amount: total,
+                booking_date: new Date().toLocaleDateString(),
+                message: `Thank you for booking with CleanCare! Your booking has been confirmed.`
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show confirmation message
+                    const confirmationMessage = document.getElementById('confirmationMessage');
+                    confirmationMessage.classList.add('show');
+                    
+                    // Reset button
+                    bookButton.disabled = false;
+                    bookButton.textContent = 'Book Now';
+                    
+                    // Reset form and cart after a delay
+                    setTimeout(() => {
+                        document.getElementById('bookingForm').reset();
+                        cart = [];
+                        updateCart();
+                        services.forEach(service => updateButtons(service.id));
+                        confirmationMessage.classList.remove('show');
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send confirmation email. Please try again or contact support.');
+                    
+                    // Reset button
+                    bookButton.disabled = false;
+                    bookButton.textContent = 'Book Now';
+                });
+        });
+
+        // Handle Newsletter Subscription
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('newsletterName').value;
+            const email = document.getElementById('newsletterEmail').value;
+            
+            const subscribeButton = this.querySelector('.subscribe-button');
+            subscribeButton.disabled = true;
+            subscribeButton.textContent = 'Subscribing...';
+            
+            // EmailJS template parameters for newsletter
+            const newsletterParams = {
+                subscriber_name: name,
+                subscriber_email: email,
+                subscription_date: new Date().toLocaleDateString()
+            };
+            
+            // Send newsletter subscription email
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_NEWSLETTER_TEMPLATE_ID', newsletterParams)
+                .then(function(response) {
+                    console.log('Newsletter subscription SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    const message = document.getElementById('newsletterMessage');
+                    message.classList.add('show');
+                    
+                    // Reset button
+                    subscribeButton.disabled = false;
+                    subscribeButton.textContent = 'Subscribe Now';
+                    
+                    // Reset form after delay
+                    setTimeout(() => {
+                        document.getElementById('newsletterForm').reset();
+                        message.classList.remove('show');
+                    }, 5000);
+                    
+                }, function(error) {
+                    console.log('Newsletter subscription FAILED...', error);
+                    alert('Failed to subscribe. Please try again later.');
+                    
+                    subscribeButton.disabled = false;
+                    subscribeButton.textContent = 'Subscribe Now';
+                });
+        });
+
+        // Initialize
+        renderServices();
+        
+    </script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
